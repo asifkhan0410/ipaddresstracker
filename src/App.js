@@ -1,9 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import './App.css';
-import { MapContainer, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import {Marker} from 'react-leaflet';
-import {VenueLocationIcon} from './components/VenueLocationIcon';
+import MapView from './components/MapView';
 
 function App() {
   const [ip, setIp] = useState('');
@@ -41,13 +38,7 @@ function App() {
         <div className="addressbody"><span>TIMEZONE </span><h2> UTC {address? address.location.timezone : ''}</h2></div>
         <div className="addressbody last"><span>ISP </span><h2>{address? address.isp : ''}</h2></div>
       </div>
-      <MapContainer center={coordinates} zoom={5}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-        />
-        <Marker position={coordinates} icon={VenueLocationIcon} ></Marker>
-      </MapContainer>
+      <MapView coordinates={coordinates}/>
     </div>
   );
 }
