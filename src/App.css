@@ -60,8 +60,14 @@
   z-index:2;
   height: 66vh;
 }
-.leaflet-pane >img{
-  background-image: url(./images/icon-location.svg);
-  background-repeat: no-repeat;
-  background-size:contain ;
+.spinner>svg{
+  width:100px;
+  height: 15px;
+  fill: hsl(0, 0%, 17%);
+}
+.searchspinner > svg{
+  width: 20px;
+  padding: 2px 0px;
+  height: 10px;
+  fill: hsl(0, 0%, 59%);
 }
