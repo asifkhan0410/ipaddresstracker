@@ -10,7 +10,6 @@ function App() {
   const [lng, setLng] =useState('');
   const coordinates = [lat,lng];
   const [toggle,setToggle] = useState(true);
-  const [ipcheck,setIpcheck] = useState(true);
 
   useEffect(() => {
      fetch(`https://geo.ipify.org/api/v1?apiKey=at_OePuO3dGE6fMS6fksNAPi4hSXSCZe`).then(res => res.json()).then(data => {
@@ -19,23 +18,10 @@ function App() {
       setLng(data.location.lng);
     })
   }, [])
-  
-  function checkIp(){
-    setIpcheck(true);
-    var newip = ip.split('.')
-    for(let i=0;i< newip.length;i++){
-      if(newip[i]<0 && newip[i]>255){
-        setIpcheck(false);
-        alert('Enter a valid ip');
-        return;
-      }
-    }
-  }
 
 
   async function searchIp(){
     setToggle(false);
-    checkIp();
     await fetch(`https://geo.ipify.org/api/v1?apiKey=at_OePuO3dGE6fMS6fksNAPi4hSXSCZe&ipAddress=${ip}`).then(res => res.json()).then(data => {
       if(data.code!==422){
         setAddress(data);
