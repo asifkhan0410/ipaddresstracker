@@ -11,6 +11,7 @@ function App() {
   const coordinates = [lat,lng];
   const [toggle,setToggle] = useState(true);
 
+  //used to fetch the initial location of the user
   useEffect(() => {
      fetch(`https://geo.ipify.org/api/v1?apiKey=at_OePuO3dGE6fMS6fksNAPi4hSXSCZe`).then(res => res.json()).then(data => {
       setAddress(data);
@@ -19,7 +20,7 @@ function App() {
     })
   }, [])
 
-
+//used to fetch the location on search
   async function searchIp(){
     setToggle(false);
     await fetch(`https://geo.ipify.org/api/v1?apiKey=at_OePuO3dGE6fMS6fksNAPi4hSXSCZe&ipAddress=${ip}`).then(res => res.json()).then(data => {
