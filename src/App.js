@@ -29,6 +29,7 @@ function App() {
         setLat(data.location.lat);
         setLng(data.location.lng);
       }else{
+        // this sets the message when user is putting wrong ip
         alert(data.messages);
       }
     })

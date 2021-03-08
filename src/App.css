@@ -73,6 +73,7 @@
   fill: hsl(0, 0%, 59%);
 }
 
+/* Mobile view changes */
 @media only screen and (max-width:376px){
   .App{
     background-size: auto;
